@@ -11,7 +11,16 @@
 |
 */
 
+Route::group(['prefix' => 'v1'], function () {
+	
+	Route::get('/', function()
+	{
+		return  'RestFul Api for Ecommerce using Laravel';
+	});
+
+});
+
 Route::get('/', function()
 {
-	return View::make('hello');
+	return  'Got to '.Request::url().'/v1 for api version 1';
 });
