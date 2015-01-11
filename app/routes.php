@@ -18,6 +18,8 @@ Route::group(['prefix' => 'v1'], function () {
 		return  'RestFul Api for Ecommerce using Laravel';
 	});
 
+	Route::resource('categories', 'CategoriesController');
+
 });
 
 Route::get('/', function()
