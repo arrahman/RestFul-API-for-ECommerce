@@ -4,12 +4,15 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"type": "project",
+	"require-dev":{
+		"phpspec/phpspec": "2.1.1"
+	},
 	"require": {
 		"laravel/framework": "4.2.*",
 		"way/generators": "~2.0",
 		"fzaninotto/faker":  "1.4.*@dev",
-		"barryvdh/laravel-debugbar": "~1.8.4"
-
+		"barryvdh/laravel-debugbar": "~1.8.4",
+		"phpunit/phpunit": "4.6.*@dev"
 	},
 	"autoload": {
 		"classmap": [
@@ -18,8 +21,9 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
-		]
+			"app/tests/TestCase.php",
+			"app/tests/CategoriesTest.php"
+			]
 	},
 	"scripts": {
 		"post-install-cmd": [
