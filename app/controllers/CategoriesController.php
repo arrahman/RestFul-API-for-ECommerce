@@ -37,7 +37,17 @@ class CategoriesController extends \ApiController {
 	 */
 	public function store()
 	{
-		//
+		// Get data
+		$data = Input::all();
+
+		if (!$data) return $this->respondNotFound('Unable to parse the data provided');
+
+		$cat = Categories::create($data);
+
+		return $this->setStatusCode(201)->respond(
+				array('categories' => $cat)
+		);
+
 	}
 
 	/**
@@ -49,7 +59,12 @@ class CategoriesController extends \ApiController {
 	 */
 	public function show($id)
 	{
-		//
+		$cat = categories::find($id);
+		if (!$cat) return $this->respondNotFound('No categories exist on record');
+
+		return $this->respondWithSuccess(
+				array('categories' => $cat)
+		);
 	}
 
 	/**
