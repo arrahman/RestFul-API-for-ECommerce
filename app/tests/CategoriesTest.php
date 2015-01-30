@@ -4,7 +4,7 @@ class CategoriesTest extends ApiTester {
 
 	public function test_Test()
 	{
-	 	$this->assertEqual(1,1);
+	 	$this->assertEquals(1,1);
 	}
 	
 /*	public function test_Get_All_Categories()
