@@ -10,7 +10,7 @@ class CategoriesController extends \ApiController {
 	 */
 	public function index()
 	{
-		$cat = categories::all();
+		$cat = Categories::all();
 		if (!$cat) return $this->respondNotFound('No categories exist on record');
 
 		return $this->respondWithSuccess(
