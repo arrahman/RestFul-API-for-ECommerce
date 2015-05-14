@@ -1,5 +1,7 @@
 <?php
 
+use App\Validators\CategoriesStoreValidator;
+
 class CategoriesController extends \ApiController {
 
 	/**
@@ -38,9 +40,15 @@ class CategoriesController extends \ApiController {
 	public function store()
 	{
 		// Get data
-		$data = Input::all();
+		$data = $this->getRequestData();
 
 		if (!$data) return $this->respondNotFound('Unable to parse the data provided');
+
+		$validator = new CategoriesStoreValidator($data);
+
+		if (!$validator->validate())
+			return $this->respondNotFound($validator->errors());
+
 
 		$cat = Categories::create($data);
 
@@ -88,7 +96,18 @@ class CategoriesController extends \ApiController {
 	 */
 	public function update($id)
 	{
-		//
+		// Get data
+		$data = $this->getRequestData();
+
+		if(!$data) return $this->respondNotFound('Unable to parse the data provided');
+
+		//$cat = Categories::create($data['categories']);
+
+		$cat = Categories::where('id', '=', $id)->update($data['categories']);
+
+		return $this->setStatusCode(201)->respond(
+				array('categories' => $cat)
+		);
 	}
 
 	/**
