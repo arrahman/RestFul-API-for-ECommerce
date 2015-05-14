@@ -8,13 +8,13 @@ The project is open-sourced software licensed under the [MIT license](http://ope
 
 Clone the project
 
-Create database 'ecommerce' or your preferred name.
+Create database 'ecommerce' or any preferred name.
 
 Change the app/config/database.php file according to your database setting.
 
-Rub migrate to create the all the table.
+Run migrate to create all the tables.
 
-Run seeder to seed the database with Faker.
+Run seeder to seed the database random generated data.
 
 ````
 	php artisan migrate
